@@ -47,8 +47,8 @@ const Item = (props) => {
     <View style ={styles.item}>
       <Feather name={'sun'} size={50} color={'white'}/>
       <Text style={styles.date}>{dt_txt}</Text>
-      <Text styles = {styles.temp}>{min}</Text>
-      <Text styles = {styles.temp}>{max}</Text>
+      <Text style = {styles.temp}>{min}</Text>
+      <Text style = {styles.temp}>{max}</Text>
     </View>
   )
 }
@@ -56,13 +56,13 @@ const UpcomingWeather = () => {
   const renderItem = ({ item }) => (
     <Item 
     condition={item.weather[0].main}
-    dt_text = {item.dt_text} 
+    dt_txt = {item.dt_txt} 
     min={item.main.temp_min} 
     max={item.main.temp_max}
   />
 )
   return (
-    <SafeAreaView>
+    <SafeAreaView style = {styles.container}>
       <Text>Upcoming Weather</Text>
       <FlatList
         data={DATA}
@@ -73,8 +73,6 @@ const UpcomingWeather = () => {
   )
 }
 
-
-
 const styles = StyleSheet.create({
   container:{
     flex: 1,
@@ -82,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   item: {
-    padding:20,
-    marginVerticle:8,
+    padding: 20,
+    marginVerticle: 8,
     marginHorizontal: 16,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -100,4 +98,6 @@ const styles = StyleSheet.create({
     fontSize: 15
   }
 })
+
+
 export default UpcomingWeather
